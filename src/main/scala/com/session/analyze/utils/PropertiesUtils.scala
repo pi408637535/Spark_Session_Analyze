@@ -26,10 +26,21 @@ object PropertiesUtils {
 		if(properties.get(key) == null){
 			default
 		}else{
-			properties.get(key).toString matches  {
+			val result = properties.get(key).toString
+			result match  {
 				case "true"=> true
-				case "false" | "FALSE"=> false
+				case "false" => false
 			}
 		}
 	}
+
+	def main(args : Array[String]): Unit = {
+		val context = "aa"
+		context match{
+			case "aa" => println("aa")
+			case "bb" => println("bb")
+			case _ => println("cc")
+		}
+	}
+
 }
